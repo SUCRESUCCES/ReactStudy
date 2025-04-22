@@ -1,0 +1,7 @@
+{
+  "liveServer.settings.port": 5501,
+  "editor.formatOnSave": false, // 저장할 때 자동 포맷 방지
+  "editor.wordWrap": "off", // 줄바꿈을 자동으로 하지 않도록 설정
+  "editor.defaultFormatter": null, // 기본 포맷터를 비활성화
+  "editor.tabSize": 2 // 탭 크기를 설정 (선택 사항)
+}
