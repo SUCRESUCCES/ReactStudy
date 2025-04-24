@@ -2,9 +2,9 @@ import "./App.css";
 import { useState } from "react";
 // function Counter(props){
 //   // props는 입력값이다
-//   let countState = useState(props.initValue);
-//   let count = countState[0];
-//   let setCount = countState[1];
+//   const countState = useState(props.initValue);
+//   const count = countState[0];
+//   const setCount = countState[1];
 //   console.log(countState);
 //   // 첫 번째 원소 : 상태의 값
 //   // 두 번째 원소 : 상태의 값을 바꿀 때 호출하는 함수
@@ -27,12 +27,9 @@ import { useState } from "react";
 function Counter({title,initValue}){
 // function Counter(props){
   const [count, setCount] = useState(initValue);
-  // const countState = useState(props.initValue);
-  // const count = countState[0];
-  // const setCount = countState[1];
-
+  const [step, setStep] = useState(1);
   function up(){
-    setCount(count+1);
+    setCount(count+step);
   }
   function down(){
     setCount(count-1);
@@ -40,7 +37,13 @@ function Counter({title,initValue}){
   
   return<div>
     <h1>{title}</h1>  
-    <button onClick={up}>+</button>{count} <button onClick={down}>-</button>
+    <button onClick={down}>-</button>
+    <input type="number" value={step} onChange={(evt)=>{
+      console.log('change', evt.target.value);
+      setStep(Number(evt.target.value));
+    }}/>
+    {count} 
+    <button onClick={up}>+</button>
   </div>
 }
 function App() {
