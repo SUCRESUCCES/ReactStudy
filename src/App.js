@@ -28,23 +28,38 @@ function Counter({title,initValue}){
 // function Counter(props){
   const [count, setCount] = useState(initValue);
   const [step, setStep] = useState(1);
+  const [history, setHistory] = useState([5,5]);
+
+  // 상태의 값이 배열이나 객체면
+  // 원본을 수정하지말고 복제본을 수정!
   function up(){
-    setCount(count+step);
+    const newCount = count + step;
+    setCount(newCount)
+    const newHistory = [...history];
+    newHistory.push(newCount)
+    setHistory(newHistory);
   }
   function down(){
-    setCount(count-1);
+    const newCount = count - 1;
+    setCount(newCount)
+    const newHistory = [...history];
+    newHistory.push(newCount)
+    setHistory(newHistory);
   }
   
   const stepHandler = (evt) => {
     console.log('change', evt.target.value);
     setStep(Number(evt.target.value));
   };
-  return<div>
+  return <div>
     <h1>{title}</h1>  
     <button onClick={down}>-</button>
-    <input type="number" value={step} onChange={stepHandler}/>
-    {count} 
     <button onClick={up}>+</button>
+    <input type="number" value={step} onChange={stepHandler}/>
+    {count}
+    <ol>
+      {history.map((e, index)=><li key={index}>{e}</li>)}
+    </ol>
   </div>
 }
 function App() {
