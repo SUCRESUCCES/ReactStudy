@@ -51,7 +51,8 @@ function Counter({title,initValue}){
     console.log('change', evt.target.value);
     setStep(Number(evt.target.value));
   };
-  return <div>
+  const style = { border: '10px solid black', padding:10, backgroundColor:'tomato'};
+  return <div style={style}>
     <h1>{title}</h1>  
     <button onClick={down}>-</button>
     <button onClick={up}>+</button>
@@ -91,7 +92,7 @@ function CounterUseEffect(){
   //set함수의 값은 값일 수도 있고 함수일 수도 있다.
   // 함수일때는 첫번째 파라미터는 현재의 state값이다.(최신값)
 
-  return <div>
+  return <div style={{border: '10px solid black', padding:10}}>
     <h1>useEffect Counter</h1> {count}
   </div>
 }
