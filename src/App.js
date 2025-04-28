@@ -1,3 +1,4 @@
+import { Container } from "@mui/material";
 import "./App.css";
 import { useEffect, useState } from "react";
 // function Counter(props){
@@ -98,13 +99,12 @@ function CounterUseEffect(){
 }
 function App() {
   return (
-    <div>
+    <Container>
       <Counter title="불면증 카운터" initValue={10}></Counter>
       {/* " " 안에 데이터를 넣으면 문자열! */}
       {/* { } 안에 넣으면 자바스크립트의 데이터 타입! */}
       <CounterUseEffect></CounterUseEffect>
-      
-    </div>
+    </Container> 
     );
 }
 
