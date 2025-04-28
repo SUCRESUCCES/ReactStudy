@@ -1,4 +1,4 @@
-import { Container } from "@mui/material";
+import { Container, Grid } from "@mui/material";
 import "./App.css";
 import { useEffect, useState } from "react";
 // function Counter(props){
@@ -99,11 +99,23 @@ function CounterUseEffect(){
 }
 function App() {
   return (
-    <Container>
-      <Counter title="불면증 카운터" initValue={10}></Counter>
-      {/* " " 안에 데이터를 넣으면 문자열! */}
-      {/* { } 안에 넣으면 자바스크립트의 데이터 타입! */}
-      <CounterUseEffect></CounterUseEffect>
+    <Container maxWidth="xl">
+      <Grid container columns={12}>
+      <Grid span={{ xs: 12, sm: 6, md: 3 }}>
+          <Counter title="불면증 카운터" initValue={10}></Counter>
+          {/* " " 안에 데이터를 넣으면 문자열! */}
+          {/* { } 안에 넣으면 자바스크립트의 데이터 타입! */}
+        </Grid>
+        <Grid span={{ xs: 12, sm: 6, md: 3 }}>
+          <CounterUseEffect></CounterUseEffect>
+        </Grid>
+        <Grid span={{ xs: 12, sm: 6, md: 3 }}>
+          <CounterUseEffect></CounterUseEffect>
+        </Grid>
+        <Grid span={{ xs: 12, sm: 6, md: 3 }}>
+          <CounterUseEffect></CounterUseEffect>
+        </Grid> 
+      </Grid>
     </Container> 
     );
 }
